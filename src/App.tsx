@@ -2,8 +2,8 @@ import React, { useState } from 'react';
 import { Container, Button } from '@material-ui/core';
 
 import './App.css';
-import { MainLayout } from './components/layouts/MainLayout';
-import { AuthLayout } from './components/layouts/AuthLayout';
+import Router from './core/router/Router/Router';
+import { ROUTES } from './core/router/ROUTES';
 
 function App() {
   const [isAuth, setAuth] = useState(true);
@@ -12,10 +12,10 @@ function App() {
 
   return (
     <Container maxWidth={false} disableGutters>
-      {isAuth ? <MainLayout /> : <AuthLayout />}
-      <Button variant="contained" color="secondary" onClick={toggleAuth}>
+      <Router auth={isAuth} routes={ROUTES} />
+      {/* <Button variant="contained" color="secondary" onClick={toggleAuth}>
         Auth
-      </Button>
+      </Button> */}
     </Container>
   );
 }
